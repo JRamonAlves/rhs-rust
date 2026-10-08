@@ -145,6 +145,10 @@ Stop it with:
 docker compose -f deployment/docker-compose.yaml down
 ```
 
+## License
+
+MIT, see [LICENSE](LICENSE). You may study, use, modify, and redistribute this project, including commercially, while preserving the copyright and license notice. Third-party dependencies retain their own licenses.
+
 ## More docs
 
 - [API reference](docs/api.md)
