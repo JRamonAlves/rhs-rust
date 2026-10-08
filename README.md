@@ -14,7 +14,7 @@ Web client -> Axum REST API -> Redis, shared text
                            -> Utoipa OpenAPI and Swagger UI
 ```
 
-Rust and Tokio run the HTTP service. Serde parses the service catalog, and Docker Compose provides Redis. The web client is maintained separately and is not included in this repository.
+Rust and Tokio run the HTTP service. Serde parses the service catalog, and Docker Compose provides Redis. The [React web client](https://github.com/JRamonAlves/rhs-web) is maintained separately.
 
 ## Personal contribution
 
@@ -25,6 +25,8 @@ José Ramon Severo Alves develops the RHS for his own home lab and uses it to le
 The application has no authentication or application-level encryption. In personal deployment, access control and transport protection depend on the private Tailscale network. CORS accepts any origin; it does not restrict access. The process binds to `0.0.0.0:8080`, so deployment must restrict which clients can reach it. Do not expose this API or Redis directly to the internet.
 
 The included `data.json` contains sample localhost URLs, not the personal service addresses. The publication snapshot omits private network identifiers and the original repository history.
+
+Publishing this source does not make the running service public. Both the web client and API belong behind private Tailnet access controls. Serve them through an HTTPS proxy available only to authorized Tailscale devices and keep Redis unreachable from public networks. The frontend is not an authentication boundary; an allowed device can call the API directly.
 
 ## What it exposes
 
@@ -104,7 +106,7 @@ The current suite has eight tests covering Redis URL selection, catalog loading 
 - A shared Redis connection manager provides clones for endpoint handlers.
 - The service catalog is read on each request, allowing changes without restarting the process.
 - OpenAPI annotations sit beside handlers; Swagger UI exposes the generated specification at `/docs`.
-- Values have no expiry, and key and value are passed as query parameters. Avoid sensitive values in URLs because request logging can retain them.
+- Values have no expiry, and key and value are passed as query parameters. The API also logs written values. Avoid passwords and other sensitive text because browser tools, proxy logs, and backend logs can retain it.
 - The test suite does not cover complete Redis or deployment integration. `/live` reports initialized state, not an active Redis health probe.
 
 ## Docker image
@@ -119,7 +121,7 @@ Run it:
 
 ```bash
 docker run --rm \
-  -p 8080:8080 \
+  -p 127.0.0.1:8080:8080 \
   --add-host=host.docker.internal:host-gateway \
   -e SERVICE_PATH=/app/data.json \
   -e REDIS_URL=redis://host.docker.internal:6379/ \
