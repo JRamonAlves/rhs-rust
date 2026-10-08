@@ -1,0 +1,15 @@
+# Go build and test artifacts
+/rhs-backend
+*.test
+*.out
+coverage.*
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+
+# Added by cargo
+
+/target

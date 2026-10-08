@@ -1,0 +1,34 @@
+name: rhs
+
+services:
+  backend:
+    build:
+      context: ..
+    image: rhs-backend:local
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      APP_ENV: production
+      REDIS_URL: redis://redis:6379/
+      SERVICE_PATH: /app/data.json
+    volumes:
+      - ../data.json:/app/data.json:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    pull_policy: always
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 1s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  redis-data:

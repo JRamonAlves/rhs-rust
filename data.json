@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Kan",
+    "description": "Project boards and task tracking.",
+    "category": "Services",
+    "url": "http://localhost:3443",
+    "port": 3443
+  },
+  {
+    "name": "Immich",
+    "description": "Photo library and media backup.",
+    "category": "Photos",
+    "url": "http://localhost:2443",
+    "port": 2443
+  },
+  {
+    "name": "Actual Budget",
+    "description": "Personal finance and budget tracking.",
+    "category": "Services",
+    "url": "http://localhost:5443",
+    "port": 5443
+  },
+  {
+    "name": "Bitwarden",
+    "description": "Password vault and secrets access.",
+    "category": "Services",
+    "url": "http://localhost:6443",
+    "port": 6443
+  },
+  {
+    "name": "RomM",
+    "description": "ROM library and retro gaming management.",
+    "category": "Comics",
+    "url": "http://localhost:8443",
+    "port": 8443
+  },
+  {
+    "name": "qBittorrent",
+    "description": "Torrent client and download management.",
+    "category": "Services",
+    "url": "http://localhost:9443",
+    "port": 9443
+  },
+  {
+    "name": "Stremio Server",
+    "description": "Stremio streaming server and local media cache.",
+    "category": "Movies and Series",
+    "url": "http://localhost:11443",
+    "port": 11443
+  },
+  {
+    "name": "Radarr",
+    "description": "Movie library and download automation.",
+    "category": "Movies and Series",
+    "url": "http://localhost:12443",
+    "port": 12443
+  },
+  {
+    "name": "Sonarr",
+    "description": "TV library and download automation.",
+    "category": "Movies and Series",
+    "url": "http://localhost:13443",
+    "port": 13443
+  },
+  {
+    "name": "Prowlarr",
+    "description": "Indexer management for media automation.",
+    "category": "Movies and Series",
+    "url": "http://localhost:14443",
+    "port": 14443
+  },
+  {
+    "name": "Jellyfin",
+    "description": "Media server for movies, anime, and TV libraries.",
+    "category": "Movies and Series",
+    "url": "http://localhost:15443",
+    "port": 15443
+  },
+  {
+    "id": "kavita",
+    "name": "Kavita",
+    "description": "Manga, comics, and ebook library server.",
+    "category": "Comics",
+    "url": "http://localhost:16043",
+    "port": 16043
+  },
+  {
+    "id": "kapowarr",
+    "name": "Kapowarr",
+    "description": "Comic library and download automation.",
+    "category": "Comics",
+    "url": "http://localhost:17043",
+    "port": 17043
+  },
+  {
+    "id": "bazarr",
+    "name": "Bazarr",
+    "description": "Subtitle management for movie and TV libraries.",
+    "category": "Movies and Series",
+    "url": "http://localhost:18043",
+    "port": 18043
+  }
+]
